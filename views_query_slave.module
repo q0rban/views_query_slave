@@ -1,0 +1,20 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Views Query Slave module.
+ * An example module for overriding Views 3's query engine to query the slave
+ * databases with Pressflow 6.
+ *
+ * @see http://www.lullabot.com/node/907
+ */
+
+/**
+ * Implementation of hook_views_api().
+ */
+function views_query_slave_views_api() {
+  return array(
+    'api' => 3, // We are implementing a Views 3 only feature.
+  );
+}

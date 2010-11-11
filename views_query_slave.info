@@ -1,0 +1,6 @@
+; $Id$
+name = Views Query Slave
+description = Override the Views 3 query plugin to query database slaves. Requires Pressflow 6.
+dependencies[] = views
+package = Views
+core = 6.x
