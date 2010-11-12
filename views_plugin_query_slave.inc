@@ -52,7 +52,6 @@ class views_plugin_query_slave extends views_plugin_query_default{
     // If you update Views and the patch from #968830 gets committed, this will
     // call the parent execute method. Yay!
     if (method_exists('views_plugin_query_default', 'db_query')) {
-      drupal_set_message('hi');
       return parent::execute($view);
     }
 
