@@ -12,6 +12,24 @@
  */
 if (function_exists('db_query_slave')) {
   /**
+   * Implementation of hook_views_plugins
+   */
+  function views_query_slave_views_plugins() {
+    $plugins = array(
+      'query' => array(
+        'views_query_slave' => array(
+          'title' => t('SQL Query (slave)'),
+          'help' => t('Query will be generated and run using the Pressflow Slave database API.'),
+          'handler' => 'views_plugin_query_slave',
+          'parent' => 'views_query',
+        ),
+      ),
+    );
+
+    return $plugins;
+  }
+
+  /**
    * Implementation of hook_views_data_alter().
    */
   function views_query_slave_views_data_alter(&$data) {
@@ -25,23 +43,5 @@ if (function_exists('db_query_slave')) {
         }
       }
     }
-  }
-
-  /**
-   * Implementation of hook_views_plugins
-   */
-  function views_query_slave_views_plugins() {
-    $plugins = array( // This just tells our themes are elsewhere.
-      'query' => array(
-        'views_query_slave' => array(
-          'title' => t('SQL Query (slave)'),
-          'help' => t('Query will be generated and run using the Pressflow Slave database API.'),
-          'handler' => 'views_plugin_query_slave',
-          'parent' => 'views_query',
-        ),
-      ),
-    );
-
-    return $plugins;
   }
 }
